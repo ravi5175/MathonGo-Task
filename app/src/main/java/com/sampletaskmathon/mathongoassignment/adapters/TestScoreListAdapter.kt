@@ -33,6 +33,7 @@ class TestScoreListAdapter(
         return TestScoreViewHolder(binding)
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: TestScoreViewHolder, position: Int) {
         with(holder){
             binding.apply {
@@ -43,7 +44,7 @@ class TestScoreListAdapter(
                 var fullScore = 0
                 var totalScore = 0
                 if(dataList[position].score !=null){
-                    if(dataList[position].score!!.Physics!=null){
+                    if(dataList[position].score!!.Physics != null){
                         totalScore += dataList[position].score!!.Physics!!
                         fullScore += 100
                         physicsScore.text = "${dataList[position].score!!.Physics}/100"
@@ -51,7 +52,7 @@ class TestScoreListAdapter(
                         physicsScore.text = "NA"
                     }
                     if(dataList[position].score!!.Chemistry!=null){
-                        totalScore += dataList[position].score!!.Physics!!
+                        totalScore += dataList[position].score!!.Chemistry!!
                         fullScore += 100
                         chemistryScore.text = "${dataList[position].score!!.Chemistry}/100"
                     }else{
@@ -59,7 +60,7 @@ class TestScoreListAdapter(
                     }
 
                     if(dataList[position].score!!.Mathematics!=null){
-                        totalScore += dataList[position].score!!.Physics!!
+                        totalScore += dataList[position].score!!.Mathematics!!
                         fullScore += 100
                         mathsScore.text = "${dataList[position].score!!.Mathematics}/100"
                     }else{
